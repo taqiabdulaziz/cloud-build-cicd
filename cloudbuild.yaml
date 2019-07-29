@@ -5,6 +5,8 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
+  substitutions:
+    _ENVIRONMENT: world
   args:
   - '-c'
   - |
@@ -19,6 +21,7 @@ steps:
       *)
         echo "branch $BRANCH_NAME ignored."
     esac
+
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '--project', '$PROJECT_ID', '-v', 'nac']
