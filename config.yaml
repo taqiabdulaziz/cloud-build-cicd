@@ -1,0 +1,6 @@
+substitutions:
+    _ENVIRONMENT: world
+    REPO_NAME: reponamenih
+    COMMIT_SHA: comitsha
+options:
+    substitution_option: 'ALLOW_LOOSE'

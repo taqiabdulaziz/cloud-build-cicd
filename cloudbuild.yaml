@@ -11,10 +11,10 @@ steps:
     echo "Deploying and building branch $BRANCH_NAME @ $REPO_NAME... "
     case $BRANCH_NAME in
       master)
-        gcloud builds submit --config=cloudbuild.yaml --substitutions=_ENVIRONMENT="production",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
+        gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="production",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
         ;;
       dev)
-        gcloud builds submit --config=cloudbuild.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
+        gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
         ;;
       *)
         echo "branch $BRANCH_NAME ignored."
