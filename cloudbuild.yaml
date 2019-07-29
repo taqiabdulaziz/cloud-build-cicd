@@ -2,6 +2,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/npm'
   args: [ 'install' ]
+- name: 'ubuntu'
   substitutions:
     _SUB_VALUE: world
 - name: 'gcr.io/cloud-builders/gcloud'
