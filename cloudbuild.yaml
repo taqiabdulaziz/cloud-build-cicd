@@ -23,6 +23,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '--project', '$PROJECT_ID', '-v', 'nac']
-
 substitutions:
     _ENVIRONMENT: world
+options:
+    substitution_option: 'ALLOW_LOOSE'
