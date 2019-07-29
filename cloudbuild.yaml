@@ -12,6 +12,7 @@ steps:
     case $BRANCH_NAME in
       master)
         sed -i 's|__SERVICE_NAME__|Boost-svc-supplier-DEV|g' config.json
+        sed -i 's|__INQUIRY_TYPE_NAME__|testttt|g' config.json
         ;;
       dev)
         gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
