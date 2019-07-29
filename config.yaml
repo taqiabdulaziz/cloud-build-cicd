@@ -3,6 +3,5 @@ steps:
   args: ['echo', 'hello world']
 substitutions:
     _SUB_VALUE: unused
-    REPO_NAME: 'mantap'
 options:
     substitution_option: 'ALLOW_LOOSE'
