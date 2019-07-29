@@ -2,6 +2,6 @@ steps:
 - name: 'ubuntu'
   args: ['echo', 'hello world']
 substitutions:
-    REPO_NAME: unused
+    _SUB_VALUE: unused
 options:
     substitution_option: 'ALLOW_LOOSE'
