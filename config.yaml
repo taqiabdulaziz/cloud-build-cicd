@@ -1,6 +1,7 @@
+steps:
+- name: 'ubuntu'
+  args: ['echo', 'hello world']
 substitutions:
-    _ENVIRONMENT: world
-    REPO_NAME: reponamenih
-    COMMIT_SHA: comitsha
+    _SUB_VALUE: unused
 options:
     substitution_option: 'ALLOW_LOOSE'
