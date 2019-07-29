@@ -1,0 +1,24 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/npm'
+  args: [ 'install' ]
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    echo "Deploying and building branch $BRANCH_NAME @ $REPO_NAME... "
+    case $BRANCH_NAME in
+      master)
+        gcloud builds submit --config=cloudbuild-deploy.yml --substitutions=_ENVIRONMENT="production",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
+        ;;
+      dev)
+        gcloud builds submit --config=cloudbuild-deploy.yml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
+        ;;
+      *)
+        echo "branch $BRANCH_NAME ignored."
+    esac
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['app', 'deploy', '--project', '$PROJECT_ID', '-v', 'nac']
