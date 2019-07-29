@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 require('dotenv').config();
 
 var app = express();
+const config = require('./config');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', (req, res) => {
-  res.send(process.env)
+  res.send(config)
 });
 app.use('/users', usersRouter);
 
