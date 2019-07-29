@@ -2,9 +2,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/npm'
   args: [ 'install' ]
-- name: 'ubuntu'
-  substitutions:
-    _SUB_VALUE: world
+
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
@@ -25,3 +23,6 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', '--project', '$PROJECT_ID', '-v', 'nac']
+
+substitutions:
+    _ENVIRONMENT: world
