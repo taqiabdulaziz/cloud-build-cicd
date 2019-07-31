@@ -11,11 +11,10 @@ steps:
     echo "Deploying and building branch $BRANCH_NAME @ $REPO_NAME... "
     case $BRANCH_NAME in
       master)
-        sed -i 's|__SERVICE_NAME__|Boost-svc-supplier-DEV|g' config.json
-        sed -i 's|__INQUIRY_TYPE_NAME__|testttt|g' config.json
+        sed -i 's|__INSTHOME__|TESTTTTT|g' config.ini
         ;;
       dev)
-        gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
+        # gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
         ;;
       *)
         echo "branch $BRANCH_NAME ignored."
