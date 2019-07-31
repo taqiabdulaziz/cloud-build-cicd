@@ -11,7 +11,7 @@ steps:
     echo "Deploying and building branch $BRANCH_NAME @ $REPO_NAME... "
     case $BRANCH_NAME in
       master)
-        sed -i 's|__INSTHOME__|TESTTTTT|g' config.ini
+        sed -i 's|__INSTHOME__|TESTTTTT|g' .env
         ;;
       dev)
         # gcloud builds submit --config=config.yaml --substitutions=_ENVIRONMENT="staging",REPO_NAME="$REPO_NAME",COMMIT_SHA="$COMMIT_SHA"
