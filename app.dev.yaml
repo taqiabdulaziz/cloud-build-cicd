@@ -1,0 +1,7 @@
+runtime: nodejs10
+service: test-dev
+env_variables:
+  _ENVIRONMENT: $_ENVIRONMENT
+  REPO_NAME: '$REPO_NAME'
+beta_settings:
+  cloud_sql_instances: jimbaran1:asia-southeast1:nac
